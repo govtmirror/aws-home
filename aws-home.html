@@ -36,15 +36,15 @@ Example:
         max-width: 300px;
         height: auto;
       }
-      #warning {
+      .warning {
         border-radius: 10px;
-        margin-left: 10%;
+        margin: 10%;
         margin-right: 10%;
         margin-top: 10px;
         margin-bottom: 10px;
-        /*width: 300px;*/
-        /*max-width: 300px;*/
-        /*height: auto;*/
+        /*width: 300px;
+        max-width: 300px;
+        height: auto;*/
         background-color: #cccccc;
         padding: 10px;
         font-family: 'Roboto', 'Noto', sans-serif;
@@ -53,7 +53,16 @@ Example:
         font-size: 1em;
         font-weight: 400;
         line-height: 24px;
-        }
+      }
+
+      paper-dialog.size-position {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        width: 300px;
+        height: 300px;
+        overflow: auto;
+      }
       #acceptbtn {
         background-color: #009688;
         color: black;
@@ -61,23 +70,25 @@ Example:
       #accept {
         text-align: center;
       }
+      paper-dialog {
+        position:absolute;
+        top:10px;
+        left:10px;
+      }
     </style>
    
    <template>
        
-    <paper-dialog id="helpDialog">
+    <paper-dialog id="helpDialog" modal class="warning">
       <h2>AWS Home Page</h2>
       <paper-dialog-scrollable>
-        <ul>
-          <li>make a selection from the menu on the left</li>
-          <li>if it is hidden, click on the "menu" icon (looks like a hamburger)</li>
-        </ul>
+        <p>False, Fictitious or Fraudulent Claims:  Whoever makes or presents to any person or officer in the civil, military, or naval service of the United States, or to any department or agency thereof, any claim upon or against the United States or any department or agency thereof, knowing such claims to be false, fictitious or fraudulent, shall be fined not more that $10,000 or imprisoned not more that five years or both.  June 25, 1948, C., 645, 62 State. 698 (Title U.S. Code 287).</p>
       </paper-dialog-scrollable>
       <div class="buttons">
-        <paper-button dialog-dismiss>Close</paper-button>
+        <paper-button dialog-dismiss>I Accept</paper-button>
       </div>
     </paper-dialog>
-    <div id="warning">
+    <!-- <div id="warning">
         <p>False, Fictitious or Fraudulent Claims:  Whoever makes or presents to any person or officer in the civil, military, or naval service of the United States, or to any department or agency thereof, any claim upon or against the United States or any department or agency thereof, knowing such claims to be false, fictitious or fraudulent, shall be fined not more that $10,000 or imprisoned not more that five years or both.  June 25, 1948, C., 645, 62 State. 698 (Title U.S. Code 287).</p><br>
         <div id="accept">
           <paper-button dialog-dismiss 
@@ -86,7 +97,7 @@ Example:
             I Accept
           </paper-button><br>
         </div>
-    </div>
+    </div> -->
     
     <img id="logo" src="NMBlogo.jpg" width="300px" height="300px">
     
@@ -108,7 +119,12 @@ Example:
       setUp: function () {
         console.log("setUp aws-home");
         this.fire('setapptitle', {title: "AWS Home Page"});
+      },
+
+      ready: function () {
+        this.$.helpDialog.open();
       }
+
 
       
     });
