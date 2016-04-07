@@ -33,6 +33,7 @@ Example:
         display: block;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 10%;
         width: 300px;
         max-width: 300px;
         height: auto;
@@ -69,6 +70,9 @@ Example:
           font-size: 0.8em;
           line-height: 16px;
         }
+        .acceptBtn {
+          font-size: 1.2em;
+        }
       }
 
       #acceptbtn {
@@ -92,7 +96,7 @@ Example:
         <p>False, Fictitious or Fraudulent Claims:  Whoever makes or presents to any person or officer in the civil, military, or naval service of the United States, or to any department or agency thereof, any claim upon or against the United States or any department or agency thereof, knowing such claims to be false, fictitious or fraudulent, shall be fined not more that $10,000 or imprisoned not more that five years or both.  June 25, 1948, C., 645, 62 State. 698 (Title U.S. Code 287).</p>
       
       <div class="buttons">
-        <paper-button dialog-dismiss>I Accept</paper-button>
+        <paper-button dialog-dismiss id="acceptbtn" class="acceptBtn">I Accept</paper-button>
       </div>
     </paper-dialog>
     
